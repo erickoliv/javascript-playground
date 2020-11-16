@@ -8,7 +8,8 @@ const obj1 = {
 };
 
 // default values
-const { name, age } = obj1;
+const { name, age = 30, bloodType } = obj1;
 
 console.log(name);
 console.log(age);
+console.log(bloodType);

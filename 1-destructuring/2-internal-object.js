@@ -11,9 +11,9 @@ console.log(address);
 address.number = 100;
 
 console.log(address);
-console.log(obj1);
+console.log(obj1.address);
 
-address = { zipCode: '1234567', street: ' a street', number: 0 }; 
+address = { zipCode: '468521', street: ' a street', number: 0 }; 
 
 console.log(address);
-console.log(obj1);
+console.log(obj1.address);

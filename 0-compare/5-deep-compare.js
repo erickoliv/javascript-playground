@@ -19,11 +19,10 @@ function isEqual(a, b) {
     const val2 = b[key];
 
     const bothObjects = isObject(val1) && isObject(val2);
-    if (bothObjects && !isEqual(val1, val2)) {
-      return false;
-    }
-    
-    if (val1 !== val2) {
+    if (
+      bothObjects && !isEqual(val1, val2)
+      || !bothObjects && val1 !== val2
+    ) {
       return false;
     }
   }
@@ -31,18 +30,8 @@ function isEqual(a, b) {
   return true;
 }
 
-const obj5 = {
-  name: 'a name',
-  phone: '+5548999991234',
-  age: 30,
-  tags: ['A','B'],
-}; 
+const obj5 = { name: 'a name', phone: '+5548999991234', age: 30, tags: ['A','B'] }; 
 
-const obj6 = {
-  name: 'a name',
-  tags: ['A','B'],
-  phone: '+5548999991234',
-  age: 30
-};
+const obj6 = { name: 'a name', tags: ['A', 'B'], phone: '+5548999991234', age: 30 };
 
 console.log(isEqual(obj5, obj6));

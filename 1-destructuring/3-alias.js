@@ -7,7 +7,6 @@ const obj1 = {
 };
 
 const { name, address: personalAddress } = obj1;
-// const { name, address: personalAddress } = obj1;
 
 console.log(name);
 console.log(address);

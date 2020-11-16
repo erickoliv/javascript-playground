@@ -1,5 +1,4 @@
-
-let name = 'default name';
+let name = 'another name';
 let age = 0;
 
 const obj1 = {
