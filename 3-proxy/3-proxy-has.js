@@ -9,7 +9,7 @@ const obj1 = {
   }
 };
 
-const proxy = new Proxy(obj1, {
+const handler =  {
   get(target, prop) {
     if (prop === 'age') {
       throw new Error('you cannot access the age');
@@ -31,12 +31,13 @@ const proxy = new Proxy(obj1, {
   //   }
   //   return prop in target;
   // }
-});
+};
+
+const proxy = new Proxy(obj1, handler);
 
 // proxy.age = 12;
 // console.log(proxy.age);
 
 console.log('name' in proxy);
 console.log('age' in proxy);
-
-console.log(Object.keys(proxy));
+console.log(Object.keys(proxy)); 
