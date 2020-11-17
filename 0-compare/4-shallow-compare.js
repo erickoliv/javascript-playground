@@ -37,8 +37,7 @@ function isEqual(a, b) {
       return false;
     }
   }
-
-
+  
   return true;
 }
 
@@ -51,7 +50,6 @@ console.log(isEqual(obj1, obj3));
 
 console.log(obj4);
 console.log(isEqual(obj3, obj4));
-
 
 const obj5 = {
   name: 'a name',

@@ -12,9 +12,10 @@ const obj3 = obj1;
 
 console.log(obj1);
 console.log(obj2);
+
+console.log(obj1 == obj2);
 console.log(obj1 === obj2);
 
-console.log(obj1 === obj2);
 console.log(obj1 === obj3);
 
 console.log(Object.is(obj1, obj2));

@@ -11,8 +11,6 @@ const obj3 = {
   name: 'another name'
 };
 
-console.log(obj1 === obj2);
-
 function isContactEqual(a, b) {
   if (a.name !== b.name) {
     return false;

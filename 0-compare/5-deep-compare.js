@@ -4,6 +4,8 @@ function isObject(object) {
 
 console.log(isObject(null));
 console.log(isObject('name'));
+console.log(isObject(true));
+console.log(isObject(function(){}));
 console.log(isObject({}));
 
 function isEqual(a, b) {
@@ -30,8 +32,23 @@ function isEqual(a, b) {
   return true;
 }
 
-const obj5 = { name: 'a name', phone: '+5548999991234', age: 30, tags: ['A','B'] }; 
+const obj5 = { 
+  name: 'a name',
+  phone: '+5548999991234',
+  age: 30,
+  tags: ['A','B'], 
+  // print: function() { return `${this.name} - ${this.age}` }
+}; 
 
-const obj6 = { name: 'a name', tags: ['A', 'B'], phone: '+5548999991234', age: 30 };
+const obj6 = { 
+  name: 'a name',
+  tags: ['A', 'B'],
+  phone: '+5548999991234',
+  age: 30, 
+  // print: function() { return `${this.name} - ${this.age}` }
+};
 
 console.log(isEqual(obj5, obj6));
+// console.log(obj6.print())
+// console.log(obj5.print())
+// console.log(obj5.print === obj6.print);
