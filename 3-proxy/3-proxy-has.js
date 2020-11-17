@@ -37,7 +37,6 @@ const proxy = new Proxy(obj1, {
 // console.log(proxy.age);
 
 console.log('name' in proxy);
-console.log('streetName' in proxy);
 console.log('age' in proxy);
 
 console.log(Object.keys(proxy));

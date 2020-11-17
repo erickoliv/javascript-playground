@@ -9,7 +9,7 @@ const obj1 = {
 };
 
 // nested objects, how to update only the street attribute from address ? 
-const obj2 = { ...obj1, address: { ...obj1.address, street: 'another street' } };
+const obj2 = { ...obj1, address: { ...obj1.address, street: 'another street' }, age: 55 };
 
 console.log(obj1);
 console.log(obj2);

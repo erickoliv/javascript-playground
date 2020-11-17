@@ -314,13 +314,166 @@ console.log(obj1); // { name: 'a name', age: 34, address: { street: 'a stree
 console.log(obj2); // { name: 'A NAME', age: 34, address: { street: 'a street', number: 55 } } 
 
 ```
-
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-
 ### Spread
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+O operador de `spread` é utilizado para expandir um objeto iterável, como array ou string, para ser utilizado onde Zero ou mais argumentos/elementos são esperados. Também pode ser utilizado para expandir um objeto em suas propriedades compostas de `chave:valor`.
+
+Podemos utilizar a funcionalidade de spread para juntar dois objetos:
+```js
+const obj1 = {
+  name: 'a name',
+  bloodType: 'O+',
+  age: 34,
+};
+
+const obj2 = {
+  age: 40, // same key
+  address: {
+    zipCode: '1234567',
+    street: 'a street',
+    number: 42
+  },
+  fullAddress: function(){
+    return `${address.street}, ${address.number}\n${address.zipCode}`;
+  }
+};
+
+const obj3 = {...obj1, ...obj2}
+
+console.log(obj1); // { name: 'a name', bloodType: 'O+', age: 34 } 
+console.log(obj2); // { age: 40, address: { zipCode: '1234567', street: 'a street', number: 42 }, fullAddress: [λ: fullAddress] } 
+console.log(obj3); // { name: 'a name', bloodType: 'O+', age: 40, address: { zipCode: '1234567', street: 'a street', number: 42 }, fullAddress: [λ: fullAddress] } 
+
+```
+
+Também pode ser utilizado para criar cópias `shallow` de objetos:
+```js
+const obj1 = {
+  name: 'a name',
+  age: 34,
+  address: {
+    zipCode: '1234567',
+    street: 'a street',
+    number: 42
+  }
+};
+// shallow 
+const obj2 = { ...obj1 };
+```
+
+É possível alterar os valores dos atributos durante o espalhamento:
+```js
+const obj1 = {
+  name: 'a name',
+  age: 34,
+};
+
+const obj2 = { ...obj1, age: 55 };
+
+console.log(obj1); // { name: 'a name', age: 34 } 
+console.log(obj2); // { name: 'a name', age: 55 } 
+```
+
+Em conjunto com a operação de desestruturação, é possível extrair os atributos restantes utilizando o operador de spread:
+
+```js
+const obj1 = {
+  name: 'a name',
+  age: 34,
+  bloodType: 'O+',
+  address: {
+    zipCode: '1234567',
+    street: 'a street',
+    number: 42
+  }
+};
+
+const { name, age, ...rest} = obj1;
+
+console.log(name); // a name
+console.log(age); // 34
+console.log(rest); // { bloodType: 'O+', address: { zipCode: '1234567', street: 'a street', number: 42 } } 
+```
 
 #### Proxy
+
+O objeto Proxy é utilizado para interceptar e definir comportamentos customizados para operações em um objeto `target`, que pode ser qualquer tipo de objeto, incluindo um array, uma função, ou até mesmo outro Proxy.
+
+Um Proxy intercepta operações em objetos através de métodos chamados de `traps`, que definem um comportamento antes de encaminhar (ou não) a operação para o objeto alvo.
+
+- `get`: trap para acesso direto a propiedade.
+- `set`: trap para alterar o valor de uma propriedade.
+- `has`: trap para o operador in.
+- `deleteProperty`: trap para remover uma propriedade do objeto com `delete`
+- `getPrototypeOf`: trap para Object.getPrototypeOf().
+- `setPrototypeOf`: trap para Object.setPrototypeOf().
+- `isExtensible`: trap para Object.isExtensible().
+- `preventExtensions`: trap para Object.preventExtensions().
+- `getOwnPropertyDescriptor`: trap para Object.getOwnPropertyDescriptor().
+- `defineProperty`: trap para Object.defineProperty().
+- `ownKeys`: trap para Object.getOwnPropertyNames().
+- `apply`: trap para execução de função
+- `construct`: trap para o construtor do objeto quando utilizado `new`
+- 
+
+No exemplo abaixo, é criado um Proxy para interceptar as operações de `get` em propriedades do `obj1`. Caso a propriedade que está sendo acessada seja do tipo `string`, o valor da propriedade é transformado em letras maiúsculas antes de retornar o valor. 
+Logo depois, definimos uma validação que não permite acessar o valor da propriedade `age` diretamente, retornando um erro no lugar do valor correspondente:
+```js
+const obj1 = {
+  name: 'a name',
+  bloodType: 'O+',
+  age: 34,
+  address: {
+    zipCode: '1234567',
+    street: 'a street',
+    number: 42
+  }
+};
+
+const proxy = new Proxy(obj1, {
+  get(target, prop) {
+    if(typeof target[prop] === 'string') {
+      return target[prop].toUpperCase();
+    }
+
+    if (prop === 'age') {
+      throw new Error('you cannot access the age');
+    }
+
+    return target[prop];
+  }
+});
+
+console.log(proxy.name); // A NAME
+console.log(proxy.age); // throws Error: you cannot access the age
+```
+
+Neste outro exemplo, 
+
+```js
+const obj1 = {
+  name: 'a name',
+  bloodType: 'O+',
+  age: 34
+};
+
+const proxy = new Proxy(obj1, {
+  set(target, prop, value) {
+    if (prop === 'age') {
+      throw new Error('you cannot modify the age');
+    }
+
+    target[prop] = value;
+    return true;
+  }
+});
+
+proxy.name = 'another name';
+console.log(proxy);
+proxy.age = 42;
+
+```
+
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
 

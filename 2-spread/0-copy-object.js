@@ -7,8 +7,12 @@ const obj1 = {
     number: 42
   }
 };
-
+// shallow 
 const obj2 = { ...obj1 };
+
+console.log(obj2);
+
+obj1.address.street = 'a new street';
 
 console.log(obj1);
 console.log(obj2);
