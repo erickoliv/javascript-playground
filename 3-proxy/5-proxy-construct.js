@@ -31,9 +31,3 @@ const obj1 = new objConstructor({
 });
 
 console.log(obj1);
-
-
-
-
-
-

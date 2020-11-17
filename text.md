@@ -472,3 +472,43 @@ proxy.age = 42;
 
 ```
 
+Podemos declarar um proxy revogável que, uma vez `cancelado`, rejeita qualquer operação feita através do proxy:
+
+```js 
+var Obj = function({ name, bloodType, age, address }) {
+  this.name = name;
+  this.bloodType = bloodType;
+  this.age = age;
+  this.address = address;
+
+  return Proxy.revocable(this, {
+    get(target, prop) {
+      if(typeof target[prop] === 'string') {
+        return target[prop].toUpperCase();
+      }
+
+      return target[prop];
+    }
+  });
+}
+
+const { proxy: obj1, revoke } = new Obj({
+  name: 'a name',
+  bloodType: 'O+',
+  age: 34,
+  address: {
+    zipCode: '1234567',
+    street: 'a street',
+    number: 42
+  }
+});
+
+console.log(Object.keys(obj1));
+console.log(obj1.name);
+
+revoke();
+console.log(obj1.name); // throws a error
+obj1.name = 'test'; // also throws a error
+
+revoke(); // calling again does nothing
+```

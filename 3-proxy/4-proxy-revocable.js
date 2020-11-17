@@ -1,5 +1,5 @@
 
-var Obj = function({ name, bloodType, age, address }) {
+const Obj = function({ name, bloodType, age, address }) {
   this.name = name;
   this.bloodType = bloodType;
   this.age = age;
@@ -35,9 +35,3 @@ revoke();
 // revoke(); // does nothing
 // console.log(obj1.name);
 // obj1.name = 'test';
-
-
-
-
-
-
