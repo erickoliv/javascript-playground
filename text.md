@@ -1,4 +1,3 @@
-## Tópicos
 ### Object:
 #### Comparação de objetos
 
@@ -314,7 +313,7 @@ console.log(obj1); // { name: 'a name', age: 34, address: { street: 'a stree
 console.log(obj2); // { name: 'A NAME', age: 34, address: { street: 'a street', number: 55 } } 
 
 ```
-### Spread
+#### Spread
 
 O operador de `spread` é utilizado para expandir um objeto iterável, como array ou string, para ser utilizado onde Zero ou mais argumentos/elementos são esperados. Também pode ser utilizado para expandir um objeto em suas propriedades compostas de `chave:valor`.
 
@@ -414,7 +413,6 @@ Um Proxy intercepta operações em objetos através de métodos chamados de `tra
 - `ownKeys`: trap para Object.getOwnPropertyNames().
 - `apply`: trap para execução de função
 - `construct`: trap para o construtor do objeto quando utilizado `new`
-- 
 
 No exemplo abaixo, é criado um Proxy para interceptar as operações de `get` em propriedades do `obj1`. Caso a propriedade que está sendo acessada seja do tipo `string`, o valor da propriedade é transformado em letras maiúsculas antes de retornar o valor. 
 Logo depois, definimos uma validação que não permite acessar o valor da propriedade `age` diretamente, retornando um erro no lugar do valor correspondente:
@@ -448,7 +446,7 @@ console.log(proxy.name); // A NAME
 console.log(proxy.age); // throws Error: you cannot access the age
 ```
 
-Neste outro exemplo, 
+Neste outro exemplo, definimos um `trap` para a operação de `set`, que é executado ao tentar alterar o valor de alguma propriedade do objeto alvo. Caso o nome do atributo que está sendo alterado seja `age`, a operação dispara um erro e a atribuição não é executada: 
 
 ```js
 const obj1 = {
@@ -473,7 +471,4 @@ console.log(proxy);
 proxy.age = 42;
 
 ```
-
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
 
