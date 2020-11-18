@@ -173,11 +173,6 @@ Para evitar esse tipo de implementação em cada aplicação, há soluções esp
 - fast-deep-equal 
 - util.isDeepStrictEqual (nodejs buitin)
 
-https://dmitripavlutin.com/how-to-compare-objects-in-javascript/
-https://medium.com/@danvitoriano/igualdade-entre-objetos-9e1104bd23ea
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-https://medium.com/javascript-in-plain-english/comparing-objects-in-javascript-ce2dc1f3de7f
-
 #### Destructuring
 
 A desestruturação de objetos é uma funcionalidade Javascript que permit extrair atributos de objetos, atribuindo em variáveis. 
@@ -356,7 +351,7 @@ const obj1 = {
     number: 42
   }
 };
-// shallow 
+// shallow copy
 const obj2 = { ...obj1 };
 ```
 

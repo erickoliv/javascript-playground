@@ -12,7 +12,7 @@ const obj2 = {
     number: 42
   },
   fullAddress: function(){
-    return `${address.street}, ${address.number}\n${address.zipCode}`;
+    return `${this.address.street}, ${this.address.number}\n${this.address.zipCode}`;
   }
 };
 
@@ -20,5 +20,5 @@ const obj3 = {...obj1, ...obj2};
 
 console.log(obj1);
 console.log(obj2);
-console.log(obj3);
+console.log(obj3.fullAddress());
 

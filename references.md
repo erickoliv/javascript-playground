@@ -1,6 +1,6 @@
 
 - Object Comparison
-
+https://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
 https://medium.com/javascript-in-plain-english/comparing-objects-in-javascript-ce2dc1f3de7f
 

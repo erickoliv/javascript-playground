@@ -37,6 +37,7 @@ const obj5 = {
   phone: '+5548999991234',
   age: 30,
   tags: ['A','B'], 
+  // created: new Date('2020-01-01T00:00:00Z')
   // print: function() { return `${this.name} - ${this.age}` }
 }; 
 
@@ -45,6 +46,7 @@ const obj6 = {
   tags: ['A', 'B'],
   phone: '+5548999991234',
   age: 30, 
+  // created: new Date('202-01-03T00:00:00Z')
   // print: function() { return `${this.name} - ${this.age}` }
 };
 
