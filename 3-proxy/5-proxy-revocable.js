@@ -29,9 +29,9 @@ const { proxy: obj1, revoke } = new Obj({
 
 console.log(Object.keys(obj1));
 console.log(obj1.name);
+console.log(obj1.age);
 
 revoke();
-
 // revoke(); // does nothing
 // console.log(obj1.name);
 // obj1.name = 'test';

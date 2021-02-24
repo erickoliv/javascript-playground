@@ -17,7 +17,7 @@ const proxy = new Proxy(obj1, {
 
 proxy.name = 'another name';
 console.log(proxy);
-proxy.age = 42;
+// proxy.age = 42;
 
 delete(proxy.age);
 console.log(proxy);

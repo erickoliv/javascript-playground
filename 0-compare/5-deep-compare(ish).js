@@ -7,6 +7,8 @@ console.log(isObject('name'));
 console.log(isObject(true));
 console.log(isObject(function(){}));
 console.log(isObject({}));
+console.log(isObject(new Date()));
+console.log(Object.keys(new Date()));
 
 function isEqual(a, b) {
   const keysA = Object.keys(a);
@@ -38,7 +40,7 @@ const obj5 = {
   age: 30,
   tags: ['A','B'], 
   // created: new Date('2020-01-01T00:00:00Z')
-  // print: function() { return `${this.name} - ${this.age}` }
+  print: function() { return `${this.name} - ${this.age}` }
 }; 
 
 const obj6 = { 
@@ -46,11 +48,11 @@ const obj6 = {
   tags: ['A', 'B'],
   phone: '+5548999991234',
   age: 30, 
-  // created: new Date('202-01-03T00:00:00Z')
-  // print: function() { return `${this.name} - ${this.age}` }
+  created: new Date('2020-01-10T00:00:00Z'),
+  print: function() { return `${this.name} - ${this.age}` }
 };
 
 console.log(isEqual(obj5, obj6));
-// console.log(obj6.print())
-// console.log(obj5.print())
+console.log(obj6.print())
+console.log(obj5.print())
 // console.log(obj5.print === obj6.print);

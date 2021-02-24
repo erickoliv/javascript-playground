@@ -37,8 +37,8 @@ proxy.name = 'another name';
 console.log(proxy);
 
 try {
-  console.log(proxy.age);
-  proxy.age = 42;
+  // console.log(proxy.age);
+  // proxy.age = 42;
   delete(proxy.age);  
   
 } catch (error) {

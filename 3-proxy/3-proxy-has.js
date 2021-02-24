@@ -24,13 +24,13 @@ const handler =  {
     target[prop] = value;
 
     return true;
+  },
+  has(target, prop) {
+    if (prop === 'age') {
+      return false;
+    }
+    return prop in target;
   }
-  // has(target, prop) {
-  //   if (prop === 'age') {
-  //     return false;
-  //   }
-  //   return prop in target;
-  // }
 };
 
 const proxy = new Proxy(obj1, handler);

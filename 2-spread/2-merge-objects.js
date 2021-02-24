@@ -16,9 +16,10 @@ const obj2 = {
   }
 };
 
-const obj3 = {...obj1, ...obj2};
+const obj3 = {...obj1, ...obj2, age: 122};
 
 console.log(obj1);
 console.log(obj2);
+console.log(obj3);
 console.log(obj3.fullAddress());
 

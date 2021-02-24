@@ -20,7 +20,7 @@ const handler = {
 const objConstructor = new Proxy(Obj, handler);
 
 const obj1 = new objConstructor({
-  // name: 'a name',
+  name: '',
   bloodType: 'O+',
   age: 34,
   address: {
